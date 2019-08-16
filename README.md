@@ -28,4 +28,9 @@ when guessAtmpt == 0
 when userguessletters = false -- guessAtmp
 
 
+Thoughts:
+use a for each statement to display _ for each letter in the "word"
 
+output the "word" into the game array so each letter is an index.
+
+array.length might prove usefull
