@@ -1,0 +1,1 @@
+document.onkeyup = function(event) {}
