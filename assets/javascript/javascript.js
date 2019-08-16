@@ -8,25 +8,21 @@ var userGuessText = document.getElementById("userGuessText");
 // array
 var computerChoices = ["square", "circle", "triangle"];
 
+// array to be used to store guessed letters
+var userGuessAttempts = []
+
 // variables to store wins, losses, and number of attempts remaining
 var wins = 0;
 var losses = 0;
 var guessAtmpt = 12;
 
 
+document.onkeyup = function(event) {
+  // variable of user key press
+  var userGuess = event.key;
 
+// variable to choose which word is being used in the game
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.onkeyup = function(event) {}
+console.log(computerGuess,userGuess);
+}
