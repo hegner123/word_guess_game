@@ -11,8 +11,12 @@ var guessedLetters = document.getElementById("array");
 var winningWordText = document.getElementById("winningWord");
 var word = document.getElementById("word");
 
-// pre-defined choices of winning words
-var computerChoices = ["square", "circle", "triangle"];
+// pre-defined array of winning word arrays;
+
+var square = ["S","Q","U","A","R","E"];
+var circle = ["C","I","R","C","L","E"];
+var triangle = ["T","R","I","A","N","G","L","E"];
+var computerChoices = [square, circle, triangle];
 
 
 // variables to store wins, losses, and number of attempts remaining
@@ -24,8 +28,10 @@ guessText.textContent = guessAtmpt;
 // array storing key presses; code displaying the guessed letters
 var userGuessLetters = []
 guessedLetters.textContent = userGuessLetters;
-// variable deciding the "word"
+// variable deciding the "word", converting the array to a lower case string;
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+var computerGuessString = computerGuess.join("").toLowerCase();
+
 // array storing the key presses of the winning word
 var winningWord = [];
 
@@ -45,12 +51,13 @@ document.onkeyup = function(event) {
 // variable of user key press
   var userGuess = event.key;
 
+
 // if key pressed matches winning word, and doesn't match an entry, push into winning word array;
-  if ((computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
+  if ((computerGuessString.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
     winningWord.push(userGuess);
     
 // otherwise, if key pressed doesn't match an entry in guessed letters, push into guess array and minus one guess attmpt;
-  }    else if ((userGuessLetters.includes(userGuess) == false) && (computerGuess.includes(userGuess)) == false) {
+  }    else if ((userGuessLetters.includes(userGuess) == false) && (computerGuessString.includes(userGuess)) == false) {
     userGuessLetters.push(userGuess);
     guessAtmpt-- ;
 // if anything else happens do nothing;
@@ -66,20 +73,10 @@ document.onkeyup = function(event) {
   
 
 
-
-// find the index of the user guess in the winning word
-var x = computerGuess.search(userGuess);
-
   
 
-
-
-
-
-
-
 }
-
+// end of keyevent function
 
 
 
