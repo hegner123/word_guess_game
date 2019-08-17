@@ -13,6 +13,7 @@ var winningWordText = document.getElementById("winningWord");
 // pre-defined choices of winning words
 var computerChoices = ["square", "circle", "triangle"];
 
+
 // variables to store wins, losses, and number of attempts remaining
 var wins = 0;
 var losses = 0;
