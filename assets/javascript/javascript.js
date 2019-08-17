@@ -17,11 +17,12 @@ var square = ["S","Q","U","A","R","E"];
 var circle = ["C","I","R","C","L","E"];
 var triangle = ["T","R","I","A","N","G","L","E"];
 var computerChoices = [square, circle, triangle];
-
-
-// variables to store wins, losses, and number of attempts remaining
+// init value on page load
 var wins = 0;
 var losses = 0;
+
+
+//  game start
 var guessAtmpt = 12;
 // displays the guess attempts
 guessText.textContent = guessAtmpt;
@@ -41,8 +42,6 @@ var wordLength = computerGuess.length
 for (i = 0; i < wordLength; i++) {
   word.textContent += "_ ";
 }
-
-
 
 
 // THE MAIN PROGRAM
@@ -70,24 +69,8 @@ document.onkeyup = function(event) {
   guessText.textContent = "Guesses Remaining  " + guessAtmpt;
   winningWordText.textContent = "Winning Word  " + winningWord;
   
-
-
-  
-
 }
 // end of keyevent function
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
