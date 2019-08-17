@@ -51,7 +51,6 @@ document.onkeyup = function(event) {
 // variable of user key press
   var userGuess = event.key;
 
-
 // if key pressed matches winning word, and doesn't match an entry, push into winning word array;
   if ((computerGuessString.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
     winningWord.push(userGuess);
