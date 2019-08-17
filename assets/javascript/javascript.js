@@ -9,6 +9,7 @@ var guessText = document.getElementById("guessText");
 var userGuessText = document.getElementById("userGuessText");
 var guessedLetters = document.getElementById("array");
 var winningWordText = document.getElementById("winningWord");
+var word = document.getElementById("word");
 
 // pre-defined choices of winning words
 var computerChoices = ["square", "circle", "triangle"];
@@ -28,6 +29,13 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 // array storing the key presses of the winning word
 var winningWord = [];
 
+// loop creating blank characters for winning word;
+var wordLength = computerGuess.length
+
+
+for (i = 0; i < wordLength; i++) {
+  word.textContent += "_ ";
+}
 
 
 
@@ -54,6 +62,12 @@ document.onkeyup = function(event) {
   guessedLetters.textContent = "Guessed Letters  " + userGuessLetters;
   guessText.textContent = "Guesses Remaining  " + guessAtmpt;
   winningWordText.textContent = "Winning Word  " + winningWord;
+  
+
+// loop substituting blank spaces with actual characters
+
+
+var x = computerGuess.search(userGuess);
 
 
 
