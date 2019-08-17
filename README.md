@@ -2,20 +2,20 @@
 
 tasks:
 
-<!-- build variables -->
+build variables
 
-<!-- log user input in array -->
+log user input in array
 
-<!-- compare new input to data currently in array and don't store input if key pressed is already stored in array -->
+compare new input to data currently in array and don't store input if key pressed is already stored in array
 
-<!-- example script -->
+example script
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var n = fruits.includes("Mango");
 
 document.getElementById("demo").innerHTML = n;
-<!-- example script end -->
+example script end
 
-<!-- compare input to computer generated random word -->
+compare input to computer generated random word
 
 
 
@@ -34,3 +34,11 @@ use a for each statement to display _ for each letter in the "word"
 output the "word" into the game array so each letter is an index.
 
 array.length might prove usefull
+
+
+
+
+
+
+// else if key pressed does match an entry in guessed letters do nothing
+  
