@@ -29,13 +29,13 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 // array storing the key presses of the winning word
 var winningWord = [];
 
+
 // loop creating blank characters for winning word;
 var wordLength = computerGuess.length
-
-
 for (i = 0; i < wordLength; i++) {
   word.textContent += "_ ";
 }
+
 
 
 
@@ -48,6 +48,7 @@ document.onkeyup = function(event) {
 // if key pressed matches winning word, and doesn't match an entry, push into winning word array;
   if ((computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
     winningWord.push(userGuess);
+    
 // otherwise, if key pressed doesn't match an entry in guessed letters, push into guess array and minus one guess attmpt;
   }    else if ((userGuessLetters.includes(userGuess) == false) && (computerGuess.includes(userGuess)) == false) {
     userGuessLetters.push(userGuess);
@@ -64,10 +65,12 @@ document.onkeyup = function(event) {
   winningWordText.textContent = "Winning Word  " + winningWord;
   
 
-// loop substituting blank spaces with actual characters
 
 
+// find the index of the user guess in the winning word
 var x = computerGuess.search(userGuess);
+
+  
 
 
 
