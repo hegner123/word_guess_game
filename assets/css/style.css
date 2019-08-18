@@ -1,12 +1,10 @@
+
+
 #gameScreen {
-  background: black;
-  color: white;
-  display: block;
-  padding:1px;
-  float: left;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
 }
 
-body {
-  background: black;
-  color: white;
+#guessedLetters {
+  text-transform: uppercase;
 }

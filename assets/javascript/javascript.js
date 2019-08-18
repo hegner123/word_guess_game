@@ -19,7 +19,7 @@ function randomWord() {
  var loseText = document.getElementById("loseText");
  var guessText = document.getElementById("guessText");
  var guessedLetters = document.getElementById("guessedLetters");
- var correctText = document.getElementById("correct");
+ 
 
  
  // array storing key presses; code displaying the guessed letters
@@ -71,7 +71,7 @@ var game = {
 // loop function creating blank characters for winning word;
 function gameScreenLoopInt () {
   for (var j = 0; j < game.computerGuess.length; j++) {
-    hidden[j] = "_ ";
+    hidden[j] = "_";
     gameScreen.textContent += hidden[j];
   }
   }
@@ -198,7 +198,7 @@ function displayGameStats() {
   winsText.textContent = "Wins: " + game.wins;
   loseText.textContent = "Losses: " + game.losses;
   guessText.textContent = "Guesses Remaining " + game.guessAtmpt;
-  correctText.textContent = "Correct Guesses: " + game.correctGuess;
+  
 }
 
 
