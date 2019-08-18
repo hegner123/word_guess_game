@@ -52,6 +52,7 @@ var game = {
     this.wins++;
   },
   reset: function () {
+    hidden = [];
     game.guessAtmpt = 12;
     game.correctGuess = 0;
     this.computerGuess = "";
@@ -156,8 +157,9 @@ function playState() {
   displayGameStats();
   // checkUserGuess variables and update game state when necessary
   checkGameState();
-
-  
+  console.log(errorFunction());
+  console.log(hidden.toString())
+  console.log(game.computerGuess.toString())
   console.log(game);
   console.log("______________________________________________")
   // end of keyevent
@@ -200,13 +202,18 @@ function displayGameStats() {
 
 
 function checkGameState() {
-  if (hidden.toString() == game.computerGuess.toString()){
+  if (hidden.toString() === game.computerGuess.toString()){
     game.state = winState();
   } else if (game.guessAtmpt == 0) {
     console.log("win");
     game.state = loseState();
+  } else {
+    ;
   }
 }
 
+function errorFunction() {
+  return hidden.toString() == game.computerGuess.toString();
+}
 
 
