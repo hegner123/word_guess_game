@@ -4,6 +4,15 @@ body {
   color:#ffffff;
 }
 
+.main-game-screen {
+  opacity: 0.52;
+  color: black;
+}
+
+.header-font {
+  font-weight: bold;
+}
+
 #gameScreen {
   letter-spacing: 1rem;
   text-transform: uppercase;
