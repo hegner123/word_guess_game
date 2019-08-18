@@ -91,17 +91,17 @@ function playState() {
       return str.length === 1 && str.match(/[a-z]/);
     }
     
-    // if false do nothing, otherwise run the check function;
+    // if false do nothing, otherwise run the checkUserGuess function;
 
     if ((isLetter(userGuess) === false) || (isLetter(userGuess) === null)) {
       ;
     } else {
-      check();
+      checkUserGuess();
     }
 
     // if key pressed matches winning word, and doesn't match an entry in the winning word array, push into winning word array;
 
-    function check() {
+    function checkUserGuess() {
       if ((game.computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
         winningWord.push(userGuess);
         game.correctGuess++;
@@ -141,7 +141,7 @@ function playState() {
   // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // display stuff
   displayGameStats();
-  // check variables and update game state when necessary
+  // checkUserGuess variables and update game state when necessary
   checkGameState();
   console.log(game);
   console.log("______________________________________________")
