@@ -1,4 +1,8 @@
-
+body {
+  font-family: 'Amiko', sans-serif;
+  background-image: url("../../assets/images/bricks2.jpg");
+  color:#ffffff;
+}
 
 #gameScreen {
   letter-spacing: 1rem;

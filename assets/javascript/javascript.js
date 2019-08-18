@@ -197,7 +197,7 @@ function displayGameStats() {
   guessedLetters.textContent = "Guessed Letters:  " + userGuessLetters;
   winsText.textContent = "Wins: " + game.wins;
   loseText.textContent = "Losses: " + game.losses;
-  guessText.textContent = "Guesses Remaining " + game.guessAtmpt;
+  guessText.textContent = "Guesses Remaining: " + game.guessAtmpt;
   
 }
 
