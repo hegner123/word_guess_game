@@ -60,6 +60,7 @@ var game = {
     gameScreen.textContent = "";
     gameScreenLoopInt();
     userGuessLetters = [];
+    winningWord = [];
     document.onkeyup = function () {
       game.state = playState();
     };
@@ -115,20 +116,19 @@ function playState() {
     // if key pressed matches winning word, and doesn't match an entry in the winning word array, push into winning word array;
 
     function checkUserGuess() {
-      if ((game.computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) == false)) {
+      if ((game.computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) === false)) {
         winningWord.push(userGuess);
-        game.correctGuess++;
 
     // otherwise, if key pressed doesn't match an entry in guessed letters array, push into guess array and minus one guess attmpt;
 
-      } else if ((userGuessLetters.includes(userGuess) == false) && (game.computerGuess.includes(userGuess)) == false) {
+      } else if ((userGuessLetters.includes(userGuess) == false) && (game.computerGuess.includes(userGuess) == false)) {
         userGuessLetters.push(userGuess);
         game.guessAtmpt--;
         
         // if anything else happens do nothing;
 
       } else {
-       ;
+       console.log("ERRRR");
       }
     }
 //-----------------------------------GAME SCREEN LOOP------------------------------------------------------------------------------
@@ -144,18 +144,20 @@ function playState() {
         hidden[i] = userGuess;
         gameScreen.textContent = "";
         for (var j = 0; j < wordLength; j++) {
-          gameScreen.textContent += hidden[j];
-        }
-      } else {
-        ;
-      }
-    }
+          gameScreen.textContent += hidden[j]; 
+        } 
+            } else {
+              ;
+            }
+          }
 
   // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // display stuff
   displayGameStats();
   // checkUserGuess variables and update game state when necessary
   checkGameState();
+
+  
   console.log(game);
   console.log("______________________________________________")
   // end of keyevent
@@ -164,10 +166,11 @@ function playState() {
 }
 
 function winState() {
+  messageText.textContent = "CONGRATULATIONS YOU WIN!!!! PRESS ANY KEY TO PLAY AGAIN!";
   game.addWin();
-  game.reset()
+  displayGameStats();
   document.onkeyup = function () {
-    game.state = playState();
+    game.reset();
     console.log(game);
     displayGameStats();
   }
@@ -195,12 +198,15 @@ function displayGameStats() {
   correctText.textContent = "Correct Guesses: " + game.correctGuess;
 }
 
+
 function checkGameState() {
-  if (game.guessAtmpt === 0) {
+  if (hidden.toString() == game.computerGuess.toString()){
+    game.state = winState();
+  } else if (game.guessAtmpt == 0) {
+    console.log("win");
     game.state = loseState();
   }
-  else {
-    ;
-  }
 }
+
+
 
