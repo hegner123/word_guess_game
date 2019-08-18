@@ -4,10 +4,10 @@ var square = ["s", "q", "u", "a", "r", "e"];
 var circle = ["c", "i", "r", "c", "l", "e"];
 var triangle = ["t", "r", "i", "a", "n", "g", "l", "e"];
 var computerChoices = [square, circle, triangle];
-
+var x = "";
 // variable deciding the "word";
 function randomWord() {
-  var x = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  x = computerChoices[Math.floor(Math.random() * computerChoices.length)];
   return x;
 }
 
@@ -54,10 +54,15 @@ var game = {
   reset: function () {
     game.guessAtmpt = 12;
     game.correctGuess = 0;
+    this.computerGuess = "";
     randomWord();
+    this.computerGuess = randomWord();
     gameScreen.textContent = "";
     gameScreenLoopInt();
     userGuessLetters = [];
+    document.onkeyup = function () {
+      game.state = playState();
+    };
   },
 }
 
@@ -83,6 +88,7 @@ function pauseState() {
 
 function playState() {
   messageText.textContent = "You are now Playing!";
+  
   //-----------------------------------KEY UP EVENTS, MAIN USER INTERFACE-------------------------------------------------------------------
   document.onkeyup = function (event) {
 
@@ -176,7 +182,6 @@ function loseState() {
     game.reset();
     console.log(game);
     displayGameStats();
-    game.state = playState();
   }
   
   return "lose" ;
