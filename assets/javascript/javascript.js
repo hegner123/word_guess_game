@@ -13,6 +13,7 @@ function randomWord() {
 
 
  // defines p elements as variables
+ var messageText = document.getElementById("message")
  var gameScreen = document.getElementById("gameScreen");
  var winsText = document.getElementById("winsText");
  var loseText = document.getElementById("loseText");
@@ -54,6 +55,7 @@ var game = {
     game.guessAtmpt = 12;
     game.correctGuess = 0;
     randomWord();
+    gameScreen.textContent = "";
     gameScreenLoopInt();
     userGuessLetters = [];
   },
@@ -70,6 +72,7 @@ function gameScreenLoopInt () {
   gameScreenLoopInt();
 
 function pauseState() {
+  messageText.textContent = "Press any key to Play!"
   document.onkeyup = function () {
     game.state = playState();
     console.log(game);
@@ -79,7 +82,7 @@ function pauseState() {
 }
 
 function playState() {
-  
+  messageText.textContent = "You are now Playing!";
   //-----------------------------------KEY UP EVENTS, MAIN USER INTERFACE-------------------------------------------------------------------
   document.onkeyup = function (event) {
 
@@ -166,6 +169,7 @@ function winState() {
 }
 
 function loseState() {
+  messageText.textContent = "YOU LOST! PRESS ANY KEY TO PLAY AGAIN!";
   game.addLoss();
   displayGameStats();
   document.onkeyup = function () {
