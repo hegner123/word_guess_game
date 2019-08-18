@@ -1,0 +1,7 @@
+#gameScreen {
+  background: black;
+  color: white;
+  display: block;
+  padding:1px;
+  float: left;
+}
