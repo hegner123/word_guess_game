@@ -129,7 +129,7 @@ function playState() {
         // if anything else happens do nothing;
 
       } else {
-       console.log("ERRRR");
+       ;
       }
     }
 //-----------------------------------GAME SCREEN LOOP------------------------------------------------------------------------------
@@ -157,6 +157,7 @@ function playState() {
   displayGameStats();
   // checkUserGuess variables and update game state when necessary
   checkGameState();
+  // log various gamestats and variables to the console
   console.log(errorFunction());
   console.log(hidden.toString())
   console.log(game.computerGuess.toString())
@@ -205,7 +206,6 @@ function checkGameState() {
   if (hidden.toString() === game.computerGuess.toString()){
     game.state = winState();
   } else if (game.guessAtmpt == 0) {
-    console.log("win");
     game.state = loseState();
   } else {
     ;
