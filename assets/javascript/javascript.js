@@ -4,12 +4,13 @@ var square = ["s", "q", "u", "a", "r", "e"];
 var circle = ["c", "i", "r", "c", "l", "e"];
 var triangle = ["t", "r", "i", "a", "n", "g", "l", "e"];
 var computerChoices = [square, circle, triangle];
-// variable deciding the "word", converting the array to a lower case string;
+
+// variable deciding the "word";
 function randomWord() {
-  return computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  var x = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  return x;
 }
 
-var playButton = document.getElementById("play");
 
  // defines p elements as variables
  var gameScreen = document.getElementById("gameScreen");
@@ -53,17 +54,20 @@ var game = {
     game.guessAtmpt = 12;
     game.correctGuess = 0;
     randomWord();
-    game.state = pauseState();
+    gameScreenLoopInt();
+    userGuessLetters = [];
   },
 }
 
-// loop creating blank characters for winning word;
-for (var j = 0; j < game.computerGuess.length; j++) {
-  hidden[j] = "_ ";
-  gameScreen.textContent += hidden[j];
-}
+// loop function creating blank characters for winning word;
+function gameScreenLoopInt () {
+  for (var j = 0; j < game.computerGuess.length; j++) {
+    hidden[j] = "_ ";
+    gameScreen.textContent += hidden[j];
+  }
+  }
 
-console.log(game);
+  gameScreenLoopInt();
 
 function pauseState() {
   document.onkeyup = function () {
@@ -150,15 +154,27 @@ function playState() {
   return "play";
 }
 
-
-
 function winState() {
   game.addWin();
+  game.reset()
+  document.onkeyup = function () {
+    game.state = playState();
+    console.log(game);
+    displayGameStats();
+  }
   return "win";
 }
 
 function loseState() {
   game.addLoss();
+  displayGameStats();
+  document.onkeyup = function () {
+    game.reset();
+    console.log(game);
+    displayGameStats();
+    game.state = playState();
+  }
+  
   return "lose" ;
 }
 
@@ -173,8 +189,6 @@ function displayGameStats() {
 function checkGameState() {
   if (game.guessAtmpt === 0) {
     game.state = loseState();
-    game.addLoss();
-    game.reset()
   }
   else {
     ;
