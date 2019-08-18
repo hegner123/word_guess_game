@@ -5,3 +5,8 @@
   padding:1px;
   float: left;
 }
+
+body {
+  background: black;
+  color: white;
+}
