@@ -33,19 +33,36 @@
 </div>
 
   <div class="row">
-    <div class="col-1"></div>
-    <div class="col-5">
-        <h2 class="text-left" id="guessedLetters">Guessed Letters:</h2>
+    <div class="col-6">
+        <h2 class="text-left game-text" id="guessedLetters">Guessed Letters:</h2>
     </div>
-    <div class="col-65">
-        <h2 class="text-left" id="winsText">Wins:</h2>
-        <h2 class="text-left" id="loseText">Losses:</h2>
-        <h2 class="text-left" id="guessText">Guesses Remaining: 12 </h2>
+    <div class="col-6">
+        <h2 class="text-left game-text" id="winsText">Wins:</h2>
+        <h2 class="text-left game-text" id="loseText">Losses:</h2>
+        <h2 class="text-left game-text" id="guessText">Guesses Remaining: 12 </h2>
     </div>
   </div>
  
-  <input type="text"/>
-  
+<audio id="victorySound">
+  <source src="assets/sounds/victory.wav" type="audio/wav">
+</audio>  
+
+<audio id="sadTrombone">
+  <source src="assets/sounds/sadtrombone.wav" type="audio/wav">
+</audio>
+
+<audio id="success">
+  <source src="assets/sounds/success.mp3" type="audio/mp3">
+</audio>
+
+<audio id="incorrectGuess">
+    <source src="assets/sounds/fail.wav" type="audio/wav">
+  </audio>
+
+  <audio id="start">
+      <source src="assets/sounds/start.wav" type="audio/wav">
+    </audio>
+
 </div>
 </body>
 <script type="text/javascript" src="assets/javascript/javascript.js"></script>

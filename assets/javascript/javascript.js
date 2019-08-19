@@ -19,6 +19,11 @@ function randomWord() {
  var loseText = document.getElementById("loseText");
  var guessText = document.getElementById("guessText");
  var guessedLetters = document.getElementById("guessedLetters");
+ var victorySound = document.getElementById("victorySound");
+ var sadTrombone = document.getElementById("sadTrombone");
+ var successSound = document.getElementById("success");
+ var incorrectGuess = document.getElementById("incorrectGuess")
+ var startSound = document.getElementById("start");
  
 
  
@@ -119,17 +124,19 @@ function playState() {
     function checkUserGuess() {
       if ((game.computerGuess.includes(userGuess)) && (winningWord.includes(userGuess) === false)) {
         winningWord.push(userGuess);
+        successSound.play();
 
     // otherwise, if key pressed doesn't match an entry in guessed letters array, push into guess array and minus one guess attmpt;
 
       } else if ((userGuessLetters.includes(userGuess) == false) && (game.computerGuess.includes(userGuess) == false)) {
         userGuessLetters.push(userGuess);
         game.guessAtmpt--;
+        incorrectGuess.play();
         
         // if anything else happens do nothing;
 
       } else {
-       ;
+       incorrectGuess.play();
       }
     }
 //-----------------------------------GAME SCREEN LOOP------------------------------------------------------------------------------
@@ -172,6 +179,7 @@ function winState() {
   messageText.textContent = "CONGRATULATIONS YOU WIN!!!! PRESS ANY KEY TO PLAY AGAIN!";
   game.addWin();
   displayGameStats();
+  victorySound.play();
   document.onkeyup = function () {
     game.reset();
     console.log(game);
@@ -184,6 +192,7 @@ function loseState() {
   messageText.textContent = "YOU LOST! PRESS ANY KEY TO PLAY AGAIN!";
   game.addLoss();
   displayGameStats();
+  sadTrombone.play();
   document.onkeyup = function () {
     game.reset();
     console.log(game);
@@ -218,4 +227,6 @@ function errorFunction() {
 }
 
 
-  
+function stopSound () {
+  ;
+}

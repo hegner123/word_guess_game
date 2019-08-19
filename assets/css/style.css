@@ -21,3 +21,7 @@ body {
 #guessedLetters {
   text-transform: uppercase;
 }
+
+.game-text {
+  padding:10px;
+}
