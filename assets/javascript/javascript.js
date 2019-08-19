@@ -201,7 +201,7 @@ function displayGameStats() {
   guessText.textContent = "Guesses Remaining: " + game.guessAtmpt;
   guessedLetters.textContent = "Guessed Letters: " + guessedLettersPrint;
 }
-
+prompt();
 
 function checkGameState() {
   if (hidden.toString() === game.computerGuess.toString()){
