@@ -89,6 +89,7 @@ function pauseState() {
     game.state = playState();
     console.log(game);
     displayGameStats();
+    startSound.play();
   }
   return "pause";
 }
@@ -114,7 +115,7 @@ function playState() {
     // if false do nothing, otherwise run the checkUserGuess function;
 
     if ((isLetter(userGuess) === false) || (isLetter(userGuess) === null)) {
-      ;
+      incorrectGuess.play();
     } else {
       checkUserGuess();
     }
@@ -184,6 +185,7 @@ function winState() {
     game.reset();
     console.log(game);
     displayGameStats();
+    startSound.play();
   }
   return "win";
 }
@@ -197,6 +199,7 @@ function loseState() {
     game.reset();
     console.log(game);
     displayGameStats();
+    startSound.play();
   }
   
   return "lose" ;
