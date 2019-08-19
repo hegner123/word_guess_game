@@ -194,11 +194,12 @@ function loseState() {
 }
 
 function displayGameStats() {
-  guessedLetters.textContent = "Guessed Letters:  " + userGuessLetters;
+  
+  var guessedLettersPrint = userGuessLetters.join(" ");
   winsText.textContent = "Wins: " + game.wins;
   loseText.textContent = "Losses: " + game.losses;
   guessText.textContent = "Guesses Remaining: " + game.guessAtmpt;
-  
+  guessedLetters.textContent = "Guessed Letters: " + guessedLettersPrint;
 }
 
 
@@ -217,3 +218,4 @@ function errorFunction() {
 }
 
 
+  
