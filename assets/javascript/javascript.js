@@ -35,7 +35,7 @@ function randomWord() {
  var winningWord = [];
  // array for GAMESCREENLOOP
  var hidden = [];
-
+// -----------------------------------MAIN GAME OBJECT------------------------------------------------------------------------------------
 var game = {
   state: pauseState(),
   computerGuess: randomWord(),
@@ -65,12 +65,8 @@ var game = {
       game.state = playState();
     };
   },
-  hardModeInstructions: function () {
-    easyHardBox.addEventListener("click",
-    instructions.textContent = "Difficulty change will start next game."
-    )
-  }
 }
+// ------------------------------------------------------------------END GAME OBJECT--------------------------------------------------------------------------------------------
 
 // loop function creating blank characters for winning word;
 function gameScreenLoopInt () {
@@ -178,7 +174,7 @@ function playState() {
 }
 
 function winState() {
-  messageText.textContent = "CONGRATULATIONS YOU WIN!!!! PRESS ANY KEY TO PLAY AGAIN!";
+  messageText.textContent = "CONGRATULATIONS! YOU WIN! PRESS ANY KEY TO PLAY AGAIN!";
   game.addWin();
   displayGameStats();
   victorySound.play();
@@ -215,7 +211,6 @@ function displayGameStats() {
   guessedLetters.textContent = "Guessed Letters: " + guessedLettersPrint;
 }
 
-
 function checkGameState() {
   if (hidden.join("") === game.computerGuess.toString()){
     game.state = winState();
@@ -236,7 +231,4 @@ function hardModeState() {
   } else {
     return 12;
   }
-}
-function stopSound () {
-  ;
 }
