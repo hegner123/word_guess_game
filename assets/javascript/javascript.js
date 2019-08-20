@@ -26,6 +26,8 @@ function randomWord() {
  var successSound = document.getElementById("success");
  var incorrectGuess = document.getElementById("incorrectGuess")
  var startSound = document.getElementById("start");
+ var easyHardBox = document.getElementById("easyHardBox");
+ var instructions = document.getElementById("instructions");
  
  // array storing key presses; code displaying the guessed letters
  var userGuessLetters = []
@@ -48,7 +50,9 @@ var game = {
   },
   reset: function () {
     hidden = [];
-    game.guessAtmpt = 12;
+    game.guessAtmpt = "";
+    hardModeState();
+    game.guessAtmpt = hardModeState();
     game.correctGuess = 0;
     this.computerGuess = "";
     randomWord();
@@ -61,6 +65,11 @@ var game = {
       game.state = playState();
     };
   },
+  hardModeInstructions: function () {
+    easyHardBox.addEventListener("click",
+    instructions.textContent = "Difficulty change will start next game."
+    )
+  }
 }
 
 // loop function creating blank characters for winning word;
@@ -158,10 +167,11 @@ function playState() {
   checkGameState();
   // log various gamestats and variables to the console
   console.log(errorFunction());
-  console.log(hidden.toString())
-  console.log(game.computerGuess.toString())
+  console.log(hidden.toString());
+  console.log(easyHardBox.checked);
   console.log(game);
-  console.log("______________________________________________")
+  console.log("______________________________________________");
+
   // end of keyevent
   }
   return "play";
@@ -220,7 +230,13 @@ function errorFunction() {
   return hidden.toString() == game.computerGuess.toString();
 }
 
-
+function hardModeState() {
+  if (easyHardBox.checked) {
+    return 3;
+  } else {
+    return 12;
+  }
+}
 function stopSound () {
   ;
 }
