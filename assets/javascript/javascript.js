@@ -1,16 +1,16 @@
-// wait till the window has loaded before doing anything;
 // pre-defined arrays of winning word arrays;
 var square = ["s", "q", "u", "a", "r", "e"];
 var circle = ["c", "i", "r", "c", "l", "e"];
 var triangle = ["t", "r", "i", "a", "n", "g", "l", "e"];
-var computerChoices = [square, circle, triangle];
+var parallelogram = ["p", "a", "r", "a", "l", "l", "e", "l", "o", "g", "r", "a", "m"];
+var trapezoid = ["t", "r", "a", "p", "e", "z", "o", "i", "d"]
+var computerChoices = [square, circle, triangle, parallelogram, trapezoid];
 var x = "";
 // variable deciding the "word";
 function randomWord() {
   x = computerChoices[Math.floor(Math.random() * computerChoices.length)];
   return x;
 }
-
 
  // defines p elements as variables
  var messageText = document.getElementById("message")
@@ -25,31 +25,19 @@ function randomWord() {
  var incorrectGuess = document.getElementById("incorrectGuess")
  var startSound = document.getElementById("start");
  
-
- 
  // array storing key presses; code displaying the guessed letters
  var userGuessLetters = []
  // array storing the key presses of the winning word
  var winningWord = [];
  // array for GAMESCREENLOOP
  var hidden = [];
- 
-
- 
- 
-
- 
-
-
-// playButton.addEventListener("click", game.state=playState());
 
 var game = {
   state: pauseState(),
-  correctGuess: 0,
-  guessAtmpt: 12,
+  computerGuess: randomWord(),
   wins: 0,
   losses: 0,
-  computerGuess: randomWord(),
+  guessAtmpt: 12,
   addLoss: function () {
     this.losses++;
   },
@@ -95,12 +83,13 @@ function pauseState() {
 }
 
 function playState() {
+
   messageText.textContent = "You are now Playing!";
   
   //-----------------------------------KEY UP EVENTS, MAIN USER INTERFACE-------------------------------------------------------------------
   document.onkeyup = function (event) {
 
-  game.state = playState();
+  
      
     // variable of user key press;
 
