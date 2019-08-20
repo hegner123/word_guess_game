@@ -1,10 +1,12 @@
 // pre-defined arrays of winning word arrays;
-var square = ["s", "q", "u", "a", "r", "e"];
-var circle = ["c", "i", "r", "c", "l", "e"];
-var triangle = ["t", "r", "i", "a", "n", "g", "l", "e"];
-var parallelogram = ["p", "a", "r", "a", "l", "l", "e", "l", "o", "g", "r", "a", "m"];
-var trapezoid = ["t", "r", "a", "p", "e", "z", "o", "i", "d"]
-var computerChoices = [square, circle, triangle, parallelogram, trapezoid];
+var square = "square";
+var circle = "circle";
+var triangle = "triangle";
+var parallelogram = "parallelogram";
+var trapezoid = "trapezoid";
+
+var computerChoices = [square, circle, triangle, parallelogram, trapezoid]
+
 var x = "";
 // variable deciding the "word";
 function randomWord() {
@@ -205,7 +207,7 @@ function displayGameStats() {
 
 
 function checkGameState() {
-  if (hidden.toString() === game.computerGuess.toString()){
+  if (hidden.join("") === game.computerGuess.toString()){
     game.state = winState();
   } else if (game.guessAtmpt == 0) {
     game.state = loseState();
