@@ -28,7 +28,7 @@ function randomWord() {
  var startSound = document.getElementById("start");
  var easyHardBox = document.getElementById("easyHardBox");
  var instructions = document.getElementById("instructions");
- 
+
  // array storing key presses; code displaying the guessed letters
  var userGuessLetters = []
  // array storing the key presses of the winning word
@@ -92,12 +92,12 @@ function pauseState() {
 function playState() {
 
   messageText.textContent = "You are now Playing!";
-  
+
   //-----------------------------------KEY UP EVENTS, MAIN USER INTERFACE-------------------------------------------------------------------
   document.onkeyup = function (event) {
 
-  
-     
+
+
     // variable of user key press;
 
     var userGuess = event.key.toLowerCase();
@@ -107,7 +107,7 @@ function playState() {
     function isLetter(str) {
       return str.length === 1 && str.match(/[a-z]/);
     }
-    
+
     // if false do nothing, otherwise run the checkUserGuess function;
 
     if ((isLetter(userGuess) === false) || (isLetter(userGuess) === null)) {
@@ -129,7 +129,7 @@ function playState() {
         userGuessLetters.push(userGuess);
         game.guessAtmpt--;
         incorrectGuess.play();
-        
+
         // if anything else happens do nothing;
 
       } else {
@@ -138,7 +138,7 @@ function playState() {
     }
 //-----------------------------------GAME SCREEN LOOP------------------------------------------------------------------------------
 
-    //declare the length of the computer choosen word as a variable 
+    //declare the length of the computer choosen word as a variable
 
     var wordLength = game.computerGuess.length;
 
@@ -149,8 +149,8 @@ function playState() {
         hidden[i] = userGuess;
         gameScreen.textContent = "";
         for (var j = 0; j < wordLength; j++) {
-          gameScreen.textContent += hidden[j]; 
-        } 
+          gameScreen.textContent += hidden[j];
+        }
             } else {
               ;
             }
@@ -198,12 +198,12 @@ function loseState() {
     displayGameStats();
     startSound.play();
   }
-  
+
   return "lose" ;
 }
 
 function displayGameStats() {
-  
+
   var guessedLettersPrint = userGuessLetters.join(" ");
   winsText.textContent = "Wins: " + game.wins;
   loseText.textContent = "Losses: " + game.losses;
